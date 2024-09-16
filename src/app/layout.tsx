@@ -6,32 +6,59 @@ import { classNames } from '@/utils/classNames'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const metaDescription = 'Generate this using ChatGPT'
-const titleAndDefault = 'Generate this using ChatGPT'
-const appUrl = 'https://my-app-name.jeanrobertou.com'
+const metaDescription =
+  'Contrib Calendar is a productivity tool that helps you track your daily progress, visualize your tasks, and stay consistent with your goals. Easily manage contributions, goals, and streaks with our intuitive, GitHub-style calendar heatmap interface.'
+const titleAndDefault = 'Contrib Calendar - Track Your Daily Progress'
+const appUrl = 'https://calendar.jeanrobertou.com'
 
 export const metadata: Metadata = {
-  title: {
-    template: titleAndDefault,
-    default: titleAndDefault,
-  },
+  title: titleAndDefault,
   description: metaDescription,
-  keywords: 'meal, planning, food, ai',
-  metadataBase: new URL(appUrl),
+  keywords: [
+    'productivity app',
+    'calendar app',
+    'task tracking',
+    'habit tracker',
+    'contributions',
+    'goal tracking',
+    'calendar heatmap',
+    'GitHub-style calendar',
+    'streak tracking',
+  ],
   openGraph: {
-    title: titleAndDefault,
-    description: metaDescription,
+    type: 'website',
+    locale: 'en_US',
     url: appUrl,
-    siteName: titleAndDefault,
+    title: titleAndDefault,
+    description:
+      'Stay on top of your daily goals with Contrib Calendar. Track contributions, manage tasks, and visualize your progress with an intuitive calendar interface.',
+    siteName: 'Contrib Calendar',
     images: [
       {
-        url: '/hero-profile.jpeg',
-        width: 500,
-        height: 500,
+        url: '/hero-profile.png',
+        width: 1200,
+        height: 630,
+        alt: 'Calendar Interface',
       },
     ],
-    type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@contribcalendar',
+    title: 'Calendar - Stay Consistent with Your Goals',
+    description:
+      'Calendar is your tool for tracking contributions and goals with a sleek GitHub-style calendar heatmap. Stay motivated and track progress.',
+    images: ['/hero-profile.png'], // Replace with your image URL
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/hero-profile.png',
+  },
+  themeColor: '#10B981', // Tailwind's green-500
 }
 
 export default function RootLayout({
