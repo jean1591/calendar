@@ -2,13 +2,14 @@ import './globals.css'
 
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
+import { StoreProvider } from './lib/store/storeProvider'
 import { classNames } from '@/utils/classNames'
 
 const inter = Inter({ subsets: ['latin'] })
 
 const metaDescription =
-  'Contrib Calendar is a productivity tool that helps you track your daily progress, visualize your tasks, and stay consistent with your goals. Easily manage contributions, goals, and streaks with our intuitive, GitHub-style calendar heatmap interface.'
-const titleAndDefault = 'Contrib Calendar - Track Your Daily Progress'
+  'Calendar is a productivity tool that helps you track your daily progress, visualize your tasks, and stay consistent with your goals. Easily manage contributions, goals, and streaks with our intuitive, GitHub-style calendar heatmap interface.'
+const titleAndDefault = 'Calendar - Track Your Daily Progress'
 const appUrl = 'https://calendar.jeanrobertou.com'
 
 export const metadata: Metadata = {
@@ -31,8 +32,8 @@ export const metadata: Metadata = {
     url: appUrl,
     title: titleAndDefault,
     description:
-      'Stay on top of your daily goals with Contrib Calendar. Track contributions, manage tasks, and visualize your progress with an intuitive calendar interface.',
-    siteName: 'Contrib Calendar',
+      'Stay on top of your daily goals with Calendar. Track contributions, manage tasks, and visualize your progress with an intuitive calendar interface.',
+    siteName: 'Calendar',
     images: [
       {
         url: '/hero-profile.png',
@@ -44,11 +45,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@contribcalendar',
+    site: '@calendar',
     title: 'Calendar - Stay Consistent with Your Goals',
     description:
       'Calendar is your tool for tracking contributions and goals with a sleek GitHub-style calendar heatmap. Stay motivated and track progress.',
-    images: ['/hero-profile.png'], // Replace with your image URL
+    images: ['/hero-profile.png'],
   },
   robots: {
     index: true,
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     apple: '/hero-profile.png',
   },
-  themeColor: '#10B981', // Tailwind's green-500
+  themeColor: '#10B981',
 }
 
 export default function RootLayout({
@@ -67,15 +68,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body
-        className={classNames(
-          inter.className,
-          'flex h-screen items-center justify-center bg-gray-950 text-slate-50'
-        )}
-      >
-        {children}
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="fr" className="scroll-smooth">
+        <body
+          className={classNames(inter.className, 'bg-gray-950 text-gray-50')}
+        >
+          {children}
+        </body>
+      </html>
+    </StoreProvider>
   )
 }
