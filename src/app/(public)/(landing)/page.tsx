@@ -8,8 +8,8 @@ export default function LandingPage() {
     <div className="space-y-20">
       <Stats />
 
-      <div className="grid grid-cols-1 gap-20 md:grid-cols-3">
-        <div className="space-y-4 md:col-span-2">
+      <div className="grid grid-cols-1 gap-20 lg:grid-cols-3">
+        <div className="space-y-4 lg:col-span-2">
           <Filters />
           <Calendar />
         </div>

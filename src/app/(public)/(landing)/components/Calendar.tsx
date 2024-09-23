@@ -30,6 +30,7 @@ export const Calendar = () => {
   return (
     <div className="space-y-4">
       <p className="text-lg">{events.length} events this year</p>
+
       <div className="grid grid-flow-col grid-rows-7 gap-[2px]">
         {dates.map((date) => (
           <CalendarCell
@@ -58,7 +59,7 @@ const CalendarCell = ({ event }: { event?: Event }) => {
         eventFilter.startDate !== event.startDate &&
         eventFilter.endDate !== event.endDate))
 
-  const noEventClass = 'bg-slate-900 hover:scale-100'
+  const noEventClass = 'bg-gray-900 hover:scale-100'
   const eventClass = (event: Event) =>
     `bg-${eventTypeToColour[event.type]}-300 hover:scale-150`
 

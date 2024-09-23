@@ -8,9 +8,7 @@ import { classNames } from '@/utils/classNames'
 import { eventTypeToColour } from './mappers/eventTypeToColour.mapper'
 
 export const ListEvents = () => {
-  const { eventFilter, events } = useSelector(
-    (state: RootState) => state.calendar
-  )
+  const { events } = useSelector((state: RootState) => state.calendar)
 
   return (
     <div className="max-h-96 space-y-2 overflow-scroll">
@@ -21,7 +19,6 @@ export const ListEvents = () => {
   )
 }
 
-// TODO: use eventFilter on filteredOut events
 const EventItem = ({ event }: { event: Event }) => {
   const dispatch = useDispatch()
   const { eventFilter, eventTypeFilters } = useSelector(
